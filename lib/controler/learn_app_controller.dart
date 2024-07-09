@@ -9,8 +9,21 @@ class LearnAppController {
     if (response.statusCode == 200) {
       List jsonResponce = jsonDecode(response.body);
       return jsonResponce.map((item) => LearnItem.fromJson(item)).toList();
+    } else {
+      throw Exception('Failed to load LearnItem');
     }
-    else{
+  }
+
+  Future<LearnItem> addData(LearnItem item) async {
+    final response = await http.post(Uri.parse(baseUrl),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: jsonEncode(item.toJson()));
+    if (response.statusCode == 201) {
+      print(jsonEncode(response.body));
+      return LearnItem.fromJson(jsonDecode(response.body));
+    } else {
       throw Exception('Failed to load LearnItem');
     }
   }

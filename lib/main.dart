@@ -12,6 +12,7 @@ import 'package:learn_ease/screens/sign_up.dart';
 import 'package:learn_ease/screens/user_profile.dart';
 
 import 'package:learn_ease/view/learn_app_page.dart';
+import 'package:learn_ease/view/learn_app_addData.dart';
 
 void main() {
   runApp(const learnEase());
@@ -39,6 +40,7 @@ class learnEase extends StatelessWidget {
         AddCart.routeName: (context) => AddCart(),
         MyCoursesNav.routeName: (context) => MyCoursesNav(),
         LearnItemWidget.routeName: (context) => LearnItemWidget(),
+        PostItem.routeName:(context) =>  PostItem(),
       },
       initialRoute: LearnItemWidget.routeName,
     );
